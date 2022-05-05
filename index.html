@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>有缘再见...</title>
+    <meta name="viewport" content="initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+    <script src="https://cdn.staticfile.org/vue/2.6.9/vue.min.js" type="text/javascript" charset="utf-8"></script>
+    <style>
+        *{margin:0;padding:0}body,html{width:100%;height:100%;overflow:hidden;font-family:Helvetica,Arial,Microsoft Yahei,sans-serif;background-color:#354141;background-repeat:repeat;background-size:cover;font-size:14px;position:fixed;text-shadow:1px 1px rgba(0,0,0,.3)}h2,li{font-weight:400;color:#fff}h2{font-size:28px;text-transform:capitalize;margin:0 0 30px}li{display:inline-block;font-size:42px;text-align:center;text-shadow:none;vertical-align:middle;margin:10px 0;height:auto;padding-bottom:15px;background:0 0;width:136px}li:last-child{border:0}li span{line-height:70px}.see-you-main-info,li div{color:#fff;font-size:16px;text-align:center}li div{display:block;margin-top:0;background:rgba(255,255,255,.06);padding:0;height:45px;line-height:45px}.see-you-main-info{width:90%;min-width:320px;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);z-index:999;padding-bottom:80px}.see-you-foot-info{position:fixed;text-align:center;width:100%;bottom:40px;color:#eee}@media (max-width:768px){.see-you-main-info{width:320px}li:nth-last-child(3){border:0}.see-you-foot-info{bottom:20px}}a{text-decoration:none;color:#eee}
+    </style>
+</head>
+
+<body>
+<div id="app">
+
+    <div class="see-you-main-info">
+        <h1>各位，有缘再见。</h1>
+        <ul class="see-you-time-down" starttime="2021-10-1 00:00:00">
+            <li><span>{{date.getFullYear()}}</span>
+                <div>year</div>
+            </li>
+            <li><span>{{date.getHours()<10?'0'+date.getHours():date.getHours()}}</span>
+                <div>hour</div>
+            </li>
+            <li><span>{{date.getMinutes()<10?'0'+date.getMinutes():date.getMinutes()}}</span>
+                <div>min</div>
+            </li>
+            <li><span>{{date.getSeconds()<10?'0'+date.getSeconds():date.getSeconds()}}</span>
+                <div>sec</div>
+            </li>
+        </ul>
+    </div>
+    <div class="see-you-foot-info">
+        {{`Copyright ${new Date().getFullYear()} ${location.hostname} Inc.`}}
+    </div>
+</div>
+<script type="text/javascript" charset="utf-8">
+    new Vue({
+        el: "#app",
+        data: {
+            date: new Date()
+        },
+        created() {
+            setInterval(() => {
+                this.date = new Date()
+            },1000)
+        }
+
+    })
+</script>
+</body>
+
+</html>
